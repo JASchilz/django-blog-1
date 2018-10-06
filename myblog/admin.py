@@ -17,6 +17,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 # admin registrations
-#admin.site.register(CategorizationInline)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)

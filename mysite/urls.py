@@ -18,12 +18,14 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf.urls import url
 from myblog.views import list_view
+from django.contrib.auth.views import login, logout
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('myblog.urls')),
-    url(r'^$',
-        list_view,  #<-- Change this value from stub_view
-        name="blog_index"),
+    url(r'^$', list_view, name="blog_index"),
+    url(r'^login/$', login, {'template_name': 'login.html'}, name="login"),
+    url(r'^logout/$', logout, {'next_page': '/'}, name="logout"),
 ]

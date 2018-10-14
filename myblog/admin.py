@@ -1,15 +1,15 @@
 from django.contrib import admin
-from myblog.models import Post, Category, Categorization
+from myblog.models import Post, Category
 
 
 #  Model admin classes
-class CategorizationInline(admin.TabularInline):
-    model = Categorization
+class CategoryInline(admin.TabularInline):
+    model = Category
     extra = 1
 
 
 class PostAdmin(admin.ModelAdmin):
-    inlines = (CategorizationInline,)
+    inlines = (CategoryInline,)
 
 
 class CategoryAdmin(admin.ModelAdmin):
